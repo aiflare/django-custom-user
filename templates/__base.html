@@ -1,0 +1,118 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+  <title>{% block title %} {% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block css %} {% endblock %}
+  <style>
+    .profile {
+      background-image: url( "{{user.profile.url}}");
+    }
+    .border{
+      border: 1px red solid;
+    }
+  </style>
+</head>
+<body class="font-muli theme-cyan gradient close_rightbar">
+
+{% block page_header %}
+<div class="text-center" style="margin-bottom:0">
+  <h1>SCMCore</h1>
+  <p>Absolutely schooling! </p> 
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{% include "sidebar.html" %}
+{% endblock %}
+
+
+<div class="main_content">
+<div class="page">
+        <!-- Start Page header -->
+        <div class="section-body" id="page_top">
+            <div class="container-fluid">
+                <div class="page-header">
+                    <div class="left">                        
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="What you want to find">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        
+                        <div class="notification d-flex">
+                            
+                            <div class="dropdown d-flex">
+                                <a href="javascript:void(0)" class="chip ml-3" data-toggle="dropdown">
+                                
+                                    <span class="profile avatar" ></span> {{user.get_full_name|title}}</a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                    <a class="dropdown-item" href="{% url 'staff:profile' user.id %}"><i class="dropdown-icon fe fe-user"></i> Profile</a>
+                                    <a class="dropdown-item" href="app-setting.html"><i class="dropdown-icon fe fe-settings"></i> Settings</a>
+                                    <a class="dropdown-item" href="app-email.html"><span class="float-right"><span class="badge badge-primary">6</span></span><i class="dropdown-icon fe fe-mail"></i> Inbox</a>
+                                    <a class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon fe fe-send"></i> Message</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon fe fe-help-circle"></i> Need help?</a>
+                                    <a class="dropdown-item" href="{% url 'logout' %}"><i class="dropdown-icon fe fe-log-out"></i> Sign out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Page title and tab -->
+        <div class="section-body">
+            <div class="container-fluid">
+                <div class="d-flex justify-content-between align-items-center ">
+                    <div class="header-action">
+                        <h1 class="page-title">{% block page_title %}SCMCore{% endblock %}</h1>
+                        <ol class="breadcrumb page-breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">SCMcore</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                        </ol>
+                    </div>
+                    <ul class="nav nav-tabs page-header-tab">
+                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#Courses-all">List View</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Courses-add">Add</a></li>
+                        <li class="nav-item"><a class="nav-link" id="Courses-tab-Boot" data-toggle="tab" href="#Courses-add-Boot">Add Bootstrap Style</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section-body mt-4">
+            <div class="container-fluid">
+                {% block container %}
+                {% endblock %}
+            </div>
+        </div>
+        <!-- Start main footer -->
+        <div class="section-body">
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            Copyright © 2020.
+                        </div>
+                        
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+</body>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% block js %}
+{% endblock %}
+</html>

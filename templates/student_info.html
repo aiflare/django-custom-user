@@ -1,0 +1,58 @@
+{% load crispy_forms_tags %}
+<div class="row">
+      <div class="col-md-2">
+            <div class="form-group">
+              {{ form.salutation|as_crispy_field }}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+              {{ form.first_name|as_crispy_field }}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+              {{ form.middle_name|as_crispy_field }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+              {{ form.last_name|as_crispy_field }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+          <div class="form-group">
+            {{ form.email|as_crispy_field }}
+          </div>
+      </div>
+      <div class="col-md-4">
+            <div class="form-group">
+              {{ form.birth_date|as_crispy_field }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+              {{ form.profile|as_crispy_field }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+          <div class="form-group">
+            {{ form.blood_group|as_crispy_field }}
+          </div>
+      </div>
+      <div class="col-md-3">
+          <div class="form-group">
+            {{ form.gender|as_crispy_field }}
+          </div>
+      </div>
+            <div class="col-md-6">
+          <div class="form-group">
+            {{ admission_form.aadhar_number|as_crispy_field }}
+          </div>
+      </div>
+
+  </div>

@@ -1,0 +1,39 @@
+{% load crispy_forms_tags %}
+{% with birthplace_form as form %}
+<div class="row">
+  <div class="col-md-4">
+      <div class="form-group">
+        {{ form.city|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-4">
+        <div class="form-group">
+          {% comment %} {{ form.aadhar_number|as_crispy_field }} {% endcomment %}
+          {{ form.tehsil|as_crispy_field }}
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+          {{ form.district|as_crispy_field }}
+        </div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+      <div class="form-group">
+        {{ form.state|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-4">
+        <div class="form-group">
+          {% comment %} {{ form.aadhar_number|as_crispy_field }} {% endcomment %}
+          {{ form.country|as_crispy_field }}
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+          {{ form.pincode|as_crispy_field }}
+        </div>
+    </div>
+</div>
+{% endwith %}

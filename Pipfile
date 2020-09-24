@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+djangorestframework = "*"
+django = "*"
+pillow = "*"
+djoser = "*"
+drf-user = "*"
+django-allauth = "*"
+django-filter = "*"
+django-rest-swagger = "*"
+pyyaml = "*"
+django-cors-headers = "*"
+django-crispy-forms = "*"
+
+[requires]
+python_version = "3.8"

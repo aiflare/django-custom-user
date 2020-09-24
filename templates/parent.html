@@ -1,0 +1,62 @@
+{% load crispy_forms_tags %}
+<div class="row">
+  <div class="col-md-4">
+      <div class="form-group">
+        {{ parent_form.first_name|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="form-group">
+        {{ parent_form.middle_name|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="form-group">
+        {{ parent_form.last_name|as_crispy_field }}
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+      <div class="form-group">
+        {{ parent_form.email|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-3">
+      <div class="form-group">
+        {{ parent_form.relation|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-3">
+      <div class="form-group">
+        {{ parent_form.qualification|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-3">
+      <div class="form-group">
+        {{ parent_form.occupation|as_crispy_field }}
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+      <div class="form-group">
+        {{ parent_form.aadhar_number|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-3">
+      <div class="form-group">
+        {{ parent_form.pan_number|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-3">
+      <div class="form-group">
+        {{ parent_form.annual_income|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-2">
+      <div class="form-group">
+        {{ parent_form.incometax_payee|as_crispy_field }}
+      </div>
+  </div>
+</div>

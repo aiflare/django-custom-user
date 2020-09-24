@@ -1,0 +1,262 @@
+<!DOCTYPE html>{% load static %}
+<!-- saved from url=(0043)http://webartz.in/mobile-app/dashboard.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<title>Dashboard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex">
+	<link rel="stylesheet" href="{%  static 'css/bootstrap.min.css' %}" >
+
+  <link rel="stylesheet" href="{%  static 'css/normalize.min.css' %}">
+  <link rel="stylesheet" href="{%  static 'icons/icon.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{%  static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%  static 'css/style.css' %}">
+</head>
+<body>
+	<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="primary-background-color dashboard-welcome">
+      	<span><i>Welcome, {{user.get_full_name}}</i><br><strong>{{user.email}}</strong></span>
+      </div>
+      <div class="list-group list-group-flush">
+        <a href="http://webartz.in/mobile-app/dashboard.html#" class="list-group-item list-group-item-action bg-light"><strong>Home</strong></a>
+        <a href="http://webartz.in/mobile-app/dashboard.html#" class="list-group-item list-group-item-action bg-light"><strong>Find Leads</strong></a>
+        <a href="http://webartz.in/mobile-app/dashboard.html#" class="list-group-item list-group-item-action bg-light"><strong>Get DSR</strong></a>
+        <a href="http://webartz.in/mobile-app/dashboard.html#" class="list-group-item list-group-item-action bg-light"><strong>Due Rent Leads</strong></a>
+        <a href="http://webartz.in/mobile-app/dashboard.html#" class="list-group-item list-group-item-action bg-light"><strong>Contact Us</strong></a>
+        <a href="http://webartz.in/mobile-app/dashboard.html#" class="list-group-item list-group-item-action bg-light"><strong>Visit Website</strong></a>
+        <a href="http://webartz.in/mobile-app/dashboard.html#" class="list-group-item list-group-item-action bg-light"><strong>Disclaimer</strong></a>
+        <a href="http://webartz.in/mobile-app/dashboard.html#" class="list-group-item list-group-item-action bg-light"><strong>Share</strong></a>
+        <a href="{% url 'logout' %}" class="list-group-item list-group-item-action bg-light"><strong>Signout</strong></a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom primary-background-color">
+          	<div class="row">
+          		<div class="col-3">
+            		<button class="btn btn-outline-primary btn2" id="menu-toggle"><i class="fa fa-bars text-white"></i></button>
+          		</div>
+          		<div class="col-9">
+          			<h4 class="mt-1 text-white">Dashboard</h4>
+          		</div>
+          	</div>
+          </nav>
+
+          	<div class="container-fluid">
+          		<div class="row mt-3">
+          			<div class="col-4">
+          				<div class="dashboard-block-top purple">
+          					<h3>0</h3>
+          				</div>
+          				<div class="dashboard-block-bottom purple-b">
+          					<span>Interested <br>Buyer</span>
+          				</div>
+          			</div>
+          			<div class="col-4">
+          				<div class="dashboard-block-top purple">
+          					<h3>0</h3>
+          				</div>
+          				<div class="dashboard-block-bottom purple-b">
+          					<span>Residential Property</span>
+          				</div>
+          			</div>
+          			<div class="col-4">
+          				<div class="dashboard-block-top purple">
+          					<h3>0</h3>
+          				</div>
+          				<div class="dashboard-block-bottom purple-b">
+          					<span>Commercial Property</span>
+          				</div>
+          			</div>
+          		</div>
+      		</div>
+
+
+      		<!-- Total Follow Ups -->
+      		<h6 class="p-2 section-heading mt-4">Total Follow ups - 0</h6>
+      		<div class="container-fluid">
+          		<div class="row mt-4">
+          			<div class="col-4">
+          				<div class="dashboard-block-top yellow">
+          					<h3>0</h3>
+          				</div>
+          				<div class="dashboard-block-bottom yellow-b">
+          					<span>Today</span>
+          				</div>
+          			</div>
+          			<div class="col-4">
+          				<div class="dashboard-block-top yellow">
+          					<h3>0</h3>
+          				</div>
+          				<div class="dashboard-block-bottom yellow-b">
+          					<span>Next 7 Days</span>
+          				</div>
+          			</div>
+          			<div class="col-4">
+          				<div class="dashboard-block-top yellow">
+          					<h3>0</h3>
+          				</div>
+          				<div class="dashboard-block-bottom yellow-b">
+          					<span>Month</span>
+          				</div>
+          			</div>
+          		</div>
+      		</div>
+
+
+      		<!-- Appointment Confirmed -->
+      		<h6 class="p-2 section-heading mt-4">Appointment Confirmed - 0</h6>
+      		<div class="container-fluid">
+      		     <div class="row mt-4">
+      		          <div class="col-4">
+      		               <div class="dashboard-block-top green">
+      		                    <h3>0</h3>
+      		               </div>
+      		               <div class="dashboard-block-bottom green-b">
+      		                    <span>Today</span>
+      		               </div>
+      		          </div>
+      		          <div class="col-4">
+      		               <div class="dashboard-block-top green">
+      		                    <h3>0</h3>
+      		               </div>
+      		               <div class="dashboard-block-bottom green-b">
+      		                    <span>Next 7 Days</span>
+      		               </div>
+      		          </div>
+      		          <div class="col-4">
+      		               <div class="dashboard-block-top green">
+      		                    <h3>0</h3>
+      		               </div>
+      		               <div class="dashboard-block-bottom green-b">
+      		                    <span>Month</span>
+      		               </div>
+      		          </div>
+      		     </div>
+      		</div>
+      		<div class="container-fluid">
+      		     <div class="row mt-4">
+      		          <div class="col-4">
+      		               <div class="dashboard-block-top pink">
+      		                    <h3>0</h3>
+      		               </div>
+      		               <div class="dashboard-block-bottom pink-b">
+      		                    <span>Not <br>Connected</span>
+      		               </div>
+      		          </div>
+      		          <div class="col-4">
+      		               <div class="dashboard-block-top pink">
+      		                    <h3>0</h3>
+      		               </div>
+      		               <div class="dashboard-block-bottom pink-b">
+      		                    <span>Not <br>Visited</span>
+      		               </div>
+      		          </div>
+      		          <div class="col-4">
+      		               <div class="dashboard-block-top grey">
+      		                    <h3>0</h3>
+      		               </div>
+      		               <div class="dashboard-block-bottom grey-b">
+      		                    <span>Inactive <br>Property</span>
+      		               </div>
+      		          </div>
+      		     </div>
+      		</div>
+      		<div class="container-fluid">
+      		     <div class="row mt-4">
+      		          <div class="col-4">
+      		               <div class="dashboard-block-top yellow">
+      		                    <h3>0</h3>
+      		               </div>
+      		               <div class="dashboard-block-bottom yellow-b">
+      		                    <span>Monthly Total Visit</span>
+      		               </div>
+      		          </div>
+      		          <div class="col-4">
+      		               <div class="dashboard-block-top orange">
+      		                    <h3>0</h3>
+      		               </div>
+      		               <div class="dashboard-block-bottom orange-b">
+      		                    <span>Comission<br>&nbsp;</span>
+      		               </div>
+      		          </div>
+      		          <div class="col-4">
+      		               <div class="dashboard-block-top primary-color">
+      		                    <h3>0</h3>
+      		               </div>
+      		               <div class="dashboard-block-bottom primary-background-color">
+      		                    <span>Total Deal Done</span>
+      		               </div>
+      		          </div>
+      		     </div>
+      		</div>
+      		<div class="container-fluid">
+      		     <div class="row mt-4 mb-4">
+      		          <div class="col-4">
+      		               <div class="dashboard-block-top grey">
+      		                    <h3>0</h3>
+      		               </div>
+      		               <div class="dashboard-block-bottom grey-b">
+      		                    <span>Not Interested</span>
+      		               </div>
+      		          </div>
+      		          <div class="col-4">
+      		               <div class="dashboard-block-top blue">
+      		                    <h3>0</h3>
+      		               </div>
+      		               <div class="dashboard-block-bottom blue-b">
+      		                    <span>Wrong Details</span>
+      		               </div>
+      		          </div>
+      		     </div>
+      		</div>
+          <!-- Float Button -->
+          <div class="inner-fabs">
+            <div class="fab round" id="fab7" data-tooltip="Commercial Lease Enquiry">
+              <a href="http://webartz.in/mobile-app/commercial-buyer-enquiry.html">
+                <i class="fa fa-building float-button-icon"></i>
+              </a>
+            </div>
+            <div class="fab round" id="fab6" data-tooltip="Commercial Buyer Enquiry">
+              <a href="http://webartz.in/mobile-app/commercial-buyer-enquiry.html">
+                <i class="fa fa-building float-button-icon"></i>
+              </a>
+            </div>
+            <div class="fab round" id="fab5" data-tooltip="Residential Lease Enquiry">
+              <a href="http://webartz.in/mobile-app/residential-lease-enquiry.html">
+                <i class="fa fa-home float-button-icon"></i>
+              </a>
+            </div>
+            <div class="fab round" id="fab4" data-tooltip="Residential Buyer Enquiry">
+              <a href="http://webartz.in/mobile-app/residential-buyer-enquiry.html">
+                <i class="fa fa-home float-button-icon"></i>
+              </a>
+            </div>
+            <div class="fab round" id="fab3" data-tooltip="Add New Property">
+              <a href="http://webartz.in/mobile-app/add-new-property.html"><i class="fa fa-pencil float-button-icon"></i>
+              </a>
+            </div>
+          </div>
+          <div class="fab round" id="fab1"><i class="material-icons" id="fabIcon">add</i></div>
+          <!-- partial -->
+            <script src="{%  static 'js/script.js' %}"></script>
+          	
+      </div>
+	<!-- Bootstrap core JavaScript -->
+	  <script src="{%  static 'js/jquery.min.js' %}"></script>
+	<script src="{%  static 'js/bootstrap.min.js' %}" ></script>
+
+	<!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</div></body></html>

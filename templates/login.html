@@ -1,0 +1,100 @@
+<!DOCTYPE html>{% load static %}
+<!-- saved from url=(0045)https://webartz.in/mobile-app/login-page.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<title>Login Form</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="robots" content="noindex">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+<link rel="stylesheet" href="{% static 'css/bootstrap-select.css' %}">
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-select.min.js' %}"></script>
+    <link href="{% static 'css/css2.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container-fluid">
+	<div class="row primary-background-color top-bar">
+			<div class="col-2 text-center"><a href="https://webartz.in/mobile-app/dashboard.html">
+	  		<i class="fa fa-long-arrow-left top-bar-icon"></i></a>
+			</div>
+			<div class="col-10">
+				<span class="mt-1 heading-title">Login Form</span>
+			</div>
+		</div>
+		</div>
+		    
+		    <div class="container-fluid">
+            	<div class="row mt-3 text-center">
+            		<div class="col-12">
+            		    <h4 style="font-weight: bolder !important;">Real E State</h4>
+            		</div>
+            	</div>
+            </div>
+            <div class="container-fluid">
+            	<div class="row text-center">
+            		<div class="col-4"></div>
+            		<div class="col-4">
+            		    <div class="login-profile-pic">
+            		        <h1>R</h1>
+            		    </div>
+            		</div>
+            		<div class="col-4"></div>
+            	</div>
+            </div>
+            <div class="container-fluid">
+            	<div class="row mt-3 text-center">
+            		<div class="col-12">
+            		    <h4 class="bolder">Enter Your Email Id or Phone No</h4>
+        			<p class="font-size-14">it will take less than a minute</p>
+            		</div>
+            	</div>
+            </div>
+		    
+		<!-- Start List View  -->
+            <div class="container-fluid">
+                      <form id="singninFrom" method="POST" action="{% url 'login' %}" >
+          {% csrf_token %}
+          {% include 'error.html' %}
+            	<div class="row mt-2">
+            		<div class="col-sm-12">
+            			<input type="text" class="form-control input-custom" name="email" placeholder="Enter Your Email Id or Phone No">
+            			<br>
+            			<div class="input-group">
+            			<input type="password" class="form-control input-custom" name="password" placeholder="Enter Your Password">
+            			<div class="input-group-append">
+            			    <span class="input-group-text form-custom-icon" id="basic-addon2"><i class="fa fa-eye-slash"></i></span>
+            			  </div>
+            			</div>
+            		</div>
+            	</div>
+            	</div>
+          <br>
+          <!-- Submit Button -->
+        	<div class="container-fluid text-center">
+        	<div class="row">
+        		<div class="col-sm-12">
+        			<input type="submit" name="regester-now" class="btn btn-primary  save-update-button" value="Login"><br>
+        			<a href="{% url 'forgot_password' %}" class="mt-2 font-size-14">Forgot Password?</a>
+        		</div>
+        	</div>
+        	</div>
+          <br>
+          <!-- Submit Button -->
+        	<div class="container-fluid text-center">
+        	<div class="row">
+        		<div class="col-sm-12">
+        			<p class="mb-2 font-size-14">If you're not a regestered user, please</p>
+        			<a href="{% url 'register' %}" name="regester-now" class="btn btn-primary  save-update-button" >Register Now</a>
+        		</div>
+        	</div>
+          </form>
+        	</div>
+		<!-- End List View -->      
+		
+	<div class="mb-5"></div>
+	
+
+</body></html>

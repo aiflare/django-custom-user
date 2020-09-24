@@ -1,0 +1,62 @@
+{% load crispy_forms_tags %}
+<div class="row">
+<div class="col-md-4">
+      <div class="form-group">
+        {{ res_form.religion|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="form-group">
+        {{ res_form.caste|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="form-group">
+        {{ res_form.category|as_crispy_field }}
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+      <div class="form-group">
+        {{ res_form.caste_cert_num|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-6">
+      <div class="form-group">
+        {{ res_form.caste_cert_date|as_crispy_field }}
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+      <div class="form-group">
+        {{ res_form.handicaped|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-2">
+      <div class="form-group">
+        {{ res_form.handicap_type|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-2">
+      <div class="form-group">
+        {{ res_form.handicap_percent|as_crispy_field }}
+      </div>
+  </div>
+   <div class="col-md-2">
+      <div class="form-group">
+        {{ res_form.mental|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-2">
+      <div class="form-group">
+        {{ res_form.mental_type|as_crispy_field }}
+      </div>
+  </div>
+  <div class="col-md-2">
+      <div class="form-group">
+        {{ res_form.mental_percent|as_crispy_field }}
+      </div>
+  </div>
+</div>

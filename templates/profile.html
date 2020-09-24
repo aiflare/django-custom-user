@@ -1,0 +1,315 @@
+{% extends "base.html" %}{% load helper_tags %}
+
+{% block title %} SCMCore::Profile{% endblock %}
+{% block container %}
+<div class="tab-pane active" id="Staff-add">
+    <div class="row clearfix">
+        <div class="col-lg-8 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Basic Information- </h3>
+                    <span class="card-title">{{staffobj.member.email}} [{{staffobj.member.id_card_number}}] </span>
+                    
+                    <div class="card-options">
+                        <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                        <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                <form class="" name="profileForm" id="profileForm" method="post" action="{% url 'profile' user_id=user.id %}">
+                    <div class="row clearfix">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label>First Name<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" required name="first_name" value="{{staffobj.member.first_name}}">
+                                {% csrf_token %}
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label>Middle Name</label>
+                                <input type="text" class="form-control" name="middle_name" value="{{staffobj.member.middle_name}}">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label>Last Name<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="last_name" value="{{staffobj.member.last_name}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Joining Date</label>
+                                <input data-provide="datepicker" data-date-autoclose="true" class="form-control" readonly value="{{staffobj.member.date_joined}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label>Gender<span class="text-danger">*</span></label> 
+                            <select class="form-control show-tick" name="gender">
+                                <option value="">-- Gender --</option>
+                            {% if staffobj.member.gender == 10 %}
+                                <option value="10" selected>Male</option>
+                            {% else %}
+                                <option value="10">Male</option>
+                            {% endif %}
+                            {% if staffobj.member.gender == 20 %}
+                                <option value="20" selected>Female</option>
+                            {% else %}
+                                <option value="20">Female</option>
+                            {% endif %}
+                            {% if staffobj.member.gender == 30 %}
+                                <option value="30" selected>Other</option>
+                            {% else %}
+                                <option value="30">Other</option>
+                            {% endif %}
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Department</label>
+                                <select class="form-control" name="department">
+                                  <option value="">-- Select --</option>
+                                  {% for department in departments %}
+                                    {% if department.id == staffobj.dept.id %}
+                                    <option value="{{department.id}}" selected>{{department}}</option>
+                                    {% else %}
+                                    <option value="{{department.id}}">{{department}}</option>
+                                    {% endif %}
+                                  {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Staff Type<span class="text-danger">*</span></label>
+                                
+                                <select class="form-control select_field_class" name="staff_type" required>
+                                    {% for group in groups %}
+                                      {% if group in  staffobj.member.groups.all %}
+                                      <option value="{{group.id}}" selected>{{group.name}}</option>
+                                      {% else %}
+                                      <option value="{{group.id}}" >{{group.name}}</option>
+                                      {% endif %}
+                                     {% endfor %}
+                                     
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Designation<span class="text-danger">*</span></label>
+                                <select class="form-control" name="designation" required>
+                                  <option value="">-- Select --</option>
+                                  {% for position in designations %}
+                                    {% if position.id == staffobj.designation.id %}
+                                      <option value="{{position.id}}" selected>{{position}}</option>
+                                    {% else %}
+                                    <option value="{{position.id}}">{{position}}</option>
+                                    {% endif %}
+                                  {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <div class="form-group">
+                                <label>Birth Date<span class="text-danger">*</span></label>
+                                <input data-provide="datepicker" data-date-autoclose="true" required
+                                class="form-control" placeholder="YYYY-MM-DD" value="{{staffobj.member.birth_date|date:'Y-m-d'}}"
+                                name="birth_date">
+                            </div>
+                        </div>
+                        <div class="col-md-4  col-sm-12">
+                            <div class="form-group"> 
+                                <label>Blood Group</label>
+                                <select class="form-control show-tick" name="blood_group">
+                                  <option value="">-- Select --</option>
+                                  {% for bg in blood_groups %}
+                                    {% if staffobj.member.blood_group == bg %}
+                                      <option value="{{bg}}" selected>{{bg}}</option>
+                                    {% else %}
+                                      <option value="{{bg}}">{{bg}}</option>
+                                    {% endif %}
+                                  {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2  col-sm-12">
+                            <div class="form-group"> 
+                                <label>Qualification<span class="text-danger">*</span></label> 
+                                <select class="form-control show-tick" name="course" required>
+                                  <option value="">-- Select --</option>
+                                  {% for course in courses %}
+                                    {% if course == staffobj.qualification.all.0.course %}
+                                    <option value="{{course.id}}" selected>{{course.name}}</option>
+                                    {% else %}
+                                    <option value="{{course.id}}">{{course.name}}</option>
+                                    {% endif %}
+                                  {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2  col-sm-12">
+                            <div class="form-group"> 
+                                <label>Passing Year</label>
+                                <select class="form-control show-tick" name="passing_year">
+                                  <option value="">-- Select --</option>
+                                  {% for passing_year in passing_years %}
+                                  
+                                  {% if passing_year == staffobj.qualification.all.0.passing_year %}
+                                    <option value="{{passing_year}}" selected>{{passing_year}}</option>
+                                  {% else %}
+                                    <option value="{{passing_year}}">{{passing_year}}</option>
+                                    {% endif %}
+                                  {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4  col-sm-12">
+                            <div class="form-group"> 
+                                <label>College Name</label>
+                                <input type="text" class="form-control" value="{{staffobj.qualification.all.0.college_name}}" name="college_name" >
+                            </div>
+                        </div>
+                        <div class="col-md-4  col-sm-12">
+                            <div class="form-group"> 
+                                <label>University Name</label>
+                                <input type="text" class="form-control" value="{{staffobj.qualification.all.0.university}}" name="university" >
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label>Permanent Address<span class="text-danger">*</span></label> 
+                                <textarea class="form-control" name="perm_addr" required>{{staffobj.contact.perm_addr}}</textarea>
+                                {% comment %} <input type="radio" class="form-control" name="communication" > Communication Address {% endcomment %}
+                            </div> 
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Pin Code for Permanent Address<span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" required value="{{staffobj.contact.pincode}}" name="pincode">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label>Residential Address</label>
+                                <textarea class="form-control" name="residential_addr">{{staffobj.contact.residential_addr}}</textarea>
+                                {% comment %} <input type="radio" class="form-control" name="communication" > Communication Address {% endcomment %}
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Pin Code for Residential Address</label>
+                                <input type="number" class="form-control" value="{{staffobj.contact.pincode}}" name="pincode">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Phone No<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" value="{{staffobj.contact.phone1}}" name="phone1">
+                                <small id="fileHelp" class="form-text text-success">It will be considered as primary contact number for tele-communication</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Alternate Phone/Mobile No</label>
+                                <input type="text" class="form-control" value="{{staffobj.contact.phone2}}" name="phone2">
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                                <label>About Me</label>
+                                <textarea rows="4" cols="300" class="form-control no-resize" name="about" placeholder="Please type about yourselr in 3-4 lines.">{{staffobj.about}}</textarea>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group mt-2 mb-3">
+                                <div class="dropify-wrapper">
+                                  <div class="dropify-message">
+                                    <span class="file-icon"></span> 
+                                    <p>Drag and drop a file here or click</p>
+                                    {% comment %} <p class="dropify-error">Ooops, something wrong appended.</p> {% endcomment %}
+                                  </div>
+                                  <div class="dropify-loader"></div>
+                                  <div class="dropify-errors-container">
+                                    <ul></ul>
+                                  </div>
+                                    <input type="file" class="dropify" name="avtaar">
+                                    <button type="button" class="dropify-clear">Remove</button>
+                                    <div class="dropify-preview">
+                                      <span class="dropify-render"></span>
+                                      <div class="dropify-infos">
+                                        <div class="dropify-infos-inner">
+                                          <p class="dropify-filename">
+                                            <span class="file-icon"></span>
+                                            <span class="dropify-filename-inner"></span>
+                                          </p>
+                                          <p class="dropify-infos-message">Drag and drop or click to replace</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <small id="fileHelp" class="form-text text-muted">Only .jpeg images are allowed</small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-12">
+                            <div class="form-group mt-3">
+                                <label>Messages</label>
+                                <textarea rows="4" class="form-control no-resize" placeholder="Specific instructions before approval" name="desc">{{staffobj.description}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <small id="fileHelp" class="form-text text-danger">Verify before you submit! Once approved, can not be changed</small>
+                            <button type="submit" class="btn btn-primary">Send for approval</button>
+                            {% comment %} <button type="submit" class="btn btn-outline-secondary">Cancel</button> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                    </form> 
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Reset Password</h3>
+                    <div class="card-options ">
+                        <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                        <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{% url 'forgot_password' %}" name="reset_password">
+                      <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>User Email</label>
+                                <input type="text" class="form-control" name="email" value="{{staffobj.member.email}}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="text" class="form-control" name="password">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="text" class="form-control" name="confirm_password">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-outline-secondary">Cancel</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+</div>
+{% endblock container %}
+
